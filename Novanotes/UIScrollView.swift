@@ -10,7 +10,7 @@ import SwiftUI
 struct RepresentUIScrollView: UIViewRepresentable {
     func makeUIView(context: Context) -> UIScrollView {
         let scrollView = CustomUIScrollView()
-        scrollView.isScrollEnabled = true
+//        scrollView.isScrollEnabled = true
 //        scrollView.contentSize = CGSize(width: 500, height: 1000)
 
         return scrollView
@@ -56,7 +56,7 @@ class MyCustomUIScrollView: UIScrollView {
     }
 }
 
-class CustomUIScrollView: UIScrollView {
+class CustomUIScrollView: UIScrollView, UIScrollViewDelegate {
     
     override init(frame: CGRect) {
         super.init(frame: CGRect(x: 0, y: 0, width: 100, height: 10))
@@ -74,28 +74,110 @@ class CustomUIScrollView: UIScrollView {
         drawView.backgroundColor = UIColor.cyan
         
         addSubview(drawView)
+        delegate = self
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        print("scrollViewDidScroll")
+        let positionInView = scrollView.panGestureRecognizer.location(in: UIScrollView())
+        print(positionInView)
+    }
+    
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        print("scrollViewWillBeginDragging")
+    }
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        // Your code here when the user stops dragging the scroll view
+        print("scrollViewDidEndDragging")
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func touchesShouldBegin(_ touches: Set<UITouch>, with event: UIEvent?, in view: UIView) -> Bool {
+//    override func touchesShouldBegin(_ touches: Set<UITouch>, with event: UIEvent?, in view: UIView) -> Bool {
+//        if let allTouches = event?.allTouches {
+//            for touch in allTouches {
+//                if touch.type == .pencil {
+//                    print("pencil")
+//                    isScrollEnabled = false
+//                }
+//                if touch.type == .direct {
+//                    print("direct")
+//                    isScrollEnabled = true
+//                }
+//                if touch.type == .indirect {
+//                    print("indirect")
+//                }
+//            }
+//        }
+//        return true
+//    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let allTouches = event?.allTouches {
             for touch in allTouches {
                 if touch.type == .pencil {
                     print("pencil")
+                    isScrollEnabled = false
+                    setNeedsDisplay()
                 }
                 if touch.type == .direct {
                     print("direct")
+                    isScrollEnabled = true
+                    setNeedsDisplay()
                 }
                 if touch.type == .indirect {
                     print("indirect")
+                    setNeedsDisplay()
                 }
             }
         }
-        return true
     }
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if let allTouches = event?.allTouches {
+            for touch in allTouches {
+                if touch.type == .pencil {
+                    print("pencil")
+                    isScrollEnabled = false
+                    setNeedsDisplay()
+                }
+                if touch.type == .direct {
+                    print("direct")
+                    isScrollEnabled = true
+                    setNeedsDisplay()
+                }
+                if touch.type == .indirect {
+                    print("indirect")
+                    setNeedsDisplay()
+                }
+            }
+        }
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if let allTouches = event?.allTouches {
+            for touch in allTouches {
+                if touch.type == .pencil {
+                    print("pencil")
+                    isScrollEnabled = false
+                    setNeedsDisplay()
+                }
+                if touch.type == .direct {
+                    print("direct")
+                    isScrollEnabled = true
+                    setNeedsDisplay()
+                }
+                if touch.type == .indirect {
+                    print("indirect")
+                    setNeedsDisplay()
+                }
+            }
+        }
+    }
+    
 }
 
 class SmoothedDraw: UIView {
