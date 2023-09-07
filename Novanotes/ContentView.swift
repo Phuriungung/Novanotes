@@ -10,6 +10,8 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         VStack {
+            RepresentUIView().background(Color.black)
+            RepresentUIScrollView().background(Color.red)
             Image(systemName: "globe")
                 .imageScale(.large)
                 .foregroundColor(.accentColor)
