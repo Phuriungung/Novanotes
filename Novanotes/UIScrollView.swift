@@ -62,9 +62,9 @@ class CustomUIScrollView: UIScrollView {
         super.init(frame: CGRect(x: 0, y: 0, width: 100, height: 10))
         
 //        super.init(frame: frame)
-        contentSize = CGSize(width: 500, height: 1000)
+        contentSize = CGSize(width: 5000, height: 1000000)
         
-        let greenView = UIView(frame: CGRect(x: 100, y: 0, width: 300, height: 1000))
+        let greenView = UIView(frame: CGRect(x: 100, y: 0, width: 300, height: 500))
         greenView.backgroundColor = UIColor.green
         
         // Add the greenView as a subview
@@ -81,7 +81,20 @@ class CustomUIScrollView: UIScrollView {
     }
     
     override func touchesShouldBegin(_ touches: Set<UITouch>, with event: UIEvent?, in view: UIView) -> Bool {
-        true
+        if let allTouches = event?.allTouches {
+            for touch in allTouches {
+                if touch.type == .pencil {
+                    print("pencil")
+                }
+                if touch.type == .direct {
+                    print("direct")
+                }
+                if touch.type == .indirect {
+                    print("indirect")
+                }
+            }
+        }
+        return true
     }
 }
 

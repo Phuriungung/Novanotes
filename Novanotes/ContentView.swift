@@ -11,7 +11,7 @@ struct ContentView: View {
     var body: some View {
         VStack {
             RepresentUIView().background(Color.yellow)
-            RepresentUIScrollView().background(Color.red)
+            RepresentUIScrollView().background(Color.red).frame(width: 1000, height:500)
             Image(systemName: "globe")
                 .imageScale(.large)
                 .foregroundColor(.accentColor)
