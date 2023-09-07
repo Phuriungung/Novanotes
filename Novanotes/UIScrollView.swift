@@ -11,10 +11,10 @@ struct RepresentUIScrollView: UIViewRepresentable {
     func makeUIView(context: Context) -> UIScrollView {
         let scrollView = CustomUIScrollView()
         scrollView.isScrollEnabled = true
-        scrollView.contentSize = CGSize(width: 500, height: 1000)
+//        scrollView.contentSize = CGSize(width: 500, height: 1000)
 
-//        return scrollView
-        return MyCustomUIScrollView()
+        return scrollView
+//        return MyCustomUIScrollView()
     }
     
     func updateUIView(_ uiView: UIScrollView, context: Context) {
@@ -58,26 +58,11 @@ class MyCustomUIScrollView: UIScrollView {
 
 class CustomUIScrollView: UIScrollView {
     
-    override var contentSize: CGSize {
-        get {
-            // Calculate the content size based on the subviews
-            var maxY: CGFloat = 0.0
-            
-            for subview in subviews {
-                let subviewMaxY = subview.frame.maxY
-                maxY = max(maxY, subviewMaxY)
-            }
-            
-//            return CGSize(width: frame.width, height: maxY)
-            return CGSize(width: 500, height: 2000)
-        }
-        set {
-            // You can implement a setter if needed
-        }
-    }
-    
-    init() {
-        super.init(frame: CGRect(x: 0, y: 0, width: 500, height: 2000))
+    override init(frame: CGRect) {
+        super.init(frame: CGRect(x: 0, y: 0, width: 100, height: 10))
+        
+//        super.init(frame: frame)
+        contentSize = CGSize(width: 500, height: 1000)
         
         let greenView = UIView(frame: CGRect(x: 100, y: 0, width: 300, height: 1000))
         greenView.backgroundColor = UIColor.green
@@ -85,7 +70,7 @@ class CustomUIScrollView: UIScrollView {
         // Add the greenView as a subview
         addSubview(greenView)
         
-        let drawView = SmoothedDraw(frame: CGRect(x: 200, y: 0, width: 300, height: 300))
+        let drawView = SmoothedDraw(frame: CGRect(x: 400, y: 0, width: 300, height: 300))
         drawView.backgroundColor = UIColor.cyan
         
         addSubview(drawView)
@@ -186,7 +171,7 @@ class SmoothedDraw: UIView {
                 path.addLine(to: pts[1])
                 path.stroke()
                 setNeedsDisplay()
-                print("1")
+//                print("1")
             }
             
             if ctr == 2 {
@@ -195,7 +180,7 @@ class SmoothedDraw: UIView {
                 path.addQuadCurve(to: pts[2], controlPoint: pts[1])
                 path.stroke()
                 setNeedsDisplay()
-                print("2")
+//                print("2")
             }
             
             
@@ -205,7 +190,7 @@ class SmoothedDraw: UIView {
                 path.addCurve(to: pts[3], controlPoint1: pts[1], controlPoint2: pts[2])
                 path.stroke()
                 setNeedsDisplay()
-                print("3")
+//                print("3")
             }
             
             if ctr == 4 {
@@ -216,7 +201,7 @@ class SmoothedDraw: UIView {
                 //                path2.addLine(to: CGPoint(x: 500, y: 900))
                 path2.stroke()
                 setNeedsDisplay()
-                print("4")
+//                print("4")
                 
                 
                 
@@ -226,7 +211,7 @@ class SmoothedDraw: UIView {
                 //
                 //                path2.move(to: savedpts[0])
                 //                path2.addCurve(to: savedpts[3], controlPoint1: savedpts[1] , controlPoint2: savedpts[2])
-                //                //                print(savedpts)
+//                                                print(savedpts)
                 //
                 //                path2.addLine(to: CGPoint(x: 500, y: 1000))
                 //                path2.addLine(to: savedpts[1])
@@ -242,7 +227,7 @@ class SmoothedDraw: UIView {
                 
                 pts[0] = pts[3]
                 pts[1] = pts[4]
-                print("5")
+//                print("5")
                 ctr = 1
                 
             }
@@ -263,7 +248,7 @@ class SmoothedDraw: UIView {
             path2.addLine(to: pts[1])
             path2.stroke()
             setNeedsDisplay()
-            print("e1")
+//            print("e1")
         }
         
         if ctr == 2 {
@@ -271,7 +256,7 @@ class SmoothedDraw: UIView {
             path2.addQuadCurve(to: pts[2], controlPoint: pts[1])
             path2.stroke()
             setNeedsDisplay()
-            print("e2")
+//            print("e2")
         }
         
         if ctr == 3 {
@@ -279,7 +264,7 @@ class SmoothedDraw: UIView {
             path2.addCurve(to: pts[3], controlPoint1: pts[1], controlPoint2: pts[2])
             path2.stroke()
             setNeedsDisplay()
-            print("e3")
+//            print("e3")
         }
         
         ctr = 0
