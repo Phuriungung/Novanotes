@@ -149,7 +149,7 @@ class SmoothedDraw: UIView {
         
         path.move(to: pts[0])
         path.addLine(to: pts[0])
-        path.stroke()
+//        path.stroke()
         setNeedsDisplay()
     }
     
@@ -165,7 +165,7 @@ class SmoothedDraw: UIView {
     
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        path.stroke()
+//        path.stroke()
         //                print(touches)
         if let touch = touches.first {
             let p = touch.location(in: self)
@@ -182,7 +182,7 @@ class SmoothedDraw: UIView {
             if ctr == 1 {
                 path.move(to: pts[0])
                 path.addLine(to: pts[1])
-                path.stroke()
+//                path.stroke()
                 setNeedsDisplay()
 //                print("1")
             }
@@ -191,7 +191,7 @@ class SmoothedDraw: UIView {
                 path.removeAllPoints()
                 path.move(to: pts[0])
                 path.addQuadCurve(to: pts[2], controlPoint: pts[1])
-                path.stroke()
+//                path.stroke()
                 setNeedsDisplay()
 //                print("2")
             }
@@ -201,7 +201,7 @@ class SmoothedDraw: UIView {
                 path.removeAllPoints()
                 path.move(to: pts[0])
                 path.addCurve(to: pts[3], controlPoint1: pts[1], controlPoint2: pts[2])
-                path.stroke()
+//                path.stroke()
                 setNeedsDisplay()
 //                print("3")
             }
@@ -212,7 +212,7 @@ class SmoothedDraw: UIView {
                 path2.move(to: pts[0])
                 path2.addCurve(to: pts[3], controlPoint1: pts[1], controlPoint2: pts[2])
                 //                path2.addLine(to: CGPoint(x: 500, y: 900))
-                path2.stroke()
+//                path2.stroke()
                 setNeedsDisplay()
 //                print("4")
                 
@@ -252,14 +252,14 @@ class SmoothedDraw: UIView {
         if ctr == 0 {
             path2.move(to: pts[0])
             path2.addLine(to: pts[0])
-            path2.stroke()
+//            path2.stroke()
             setNeedsDisplay()
         }
         
         if ctr == 1 {
             path2.move(to: pts[0])
             path2.addLine(to: pts[1])
-            path2.stroke()
+//            path2.stroke()
             setNeedsDisplay()
 //            print("e1")
         }
@@ -267,7 +267,7 @@ class SmoothedDraw: UIView {
         if ctr == 2 {
             path2.move(to: pts[0])
             path2.addQuadCurve(to: pts[2], controlPoint: pts[1])
-            path2.stroke()
+//            path2.stroke()
             setNeedsDisplay()
 //            print("e2")
         }
@@ -275,7 +275,7 @@ class SmoothedDraw: UIView {
         if ctr == 3 {
             path2.move(to: pts[0])
             path2.addCurve(to: pts[3], controlPoint1: pts[1], controlPoint2: pts[2])
-            path2.stroke()
+//            path2.stroke()
             setNeedsDisplay()
 //            print("e3")
         }
