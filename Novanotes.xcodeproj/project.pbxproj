@@ -11,6 +11,7 @@
 		508E2A122AA8A3F4008C22E6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508E2A112AA8A3F4008C22E6 /* ContentView.swift */; };
 		508E2A142AA8A3F6008C22E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 508E2A132AA8A3F6008C22E6 /* Assets.xcassets */; };
 		508E2A172AA8A3F6008C22E6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 508E2A162AA8A3F6008C22E6 /* Preview Assets.xcassets */; };
+		508E2A1E2AA95AAA008C22E6 /* UIScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508E2A1D2AA95AAA008C22E6 /* UIScrollView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		508E2A112AA8A3F4008C22E6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		508E2A132AA8A3F6008C22E6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		508E2A162AA8A3F6008C22E6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		508E2A1D2AA95AAA008C22E6 /* UIScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScrollView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,8 +53,9 @@
 		508E2A0E2AA8A3F4008C22E6 /* Novanotes */ = {
 			isa = PBXGroup;
 			children = (
-				508E2A0F2AA8A3F4008C22E6 /* NovanotesApp.swift */,
 				508E2A112AA8A3F4008C22E6 /* ContentView.swift */,
+				508E2A1D2AA95AAA008C22E6 /* UIScrollView.swift */,
+				508E2A0F2AA8A3F4008C22E6 /* NovanotesApp.swift */,
 				508E2A132AA8A3F6008C22E6 /* Assets.xcassets */,
 				508E2A152AA8A3F6008C22E6 /* Preview Content */,
 			);
@@ -137,6 +140,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				508E2A1E2AA95AAA008C22E6 /* UIScrollView.swift in Sources */,
 				508E2A122AA8A3F4008C22E6 /* ContentView.swift in Sources */,
 				508E2A102AA8A3F4008C22E6 /* NovanotesApp.swift in Sources */,
 			);
