@@ -9,7 +9,12 @@ import SwiftUI
 
 struct RepresentUIScrollView: UIViewRepresentable {
     func makeUIView(context: Context) -> UIScrollView {
-        CustomUIScrollView()
+        let scrollView = CustomUIScrollView()
+        scrollView.isScrollEnabled = true
+        scrollView.contentSize = CGSize(width: 500, height: 1000)
+
+//        return scrollView
+        return MyCustomUIScrollView()
     }
     
     func updateUIView(_ uiView: UIScrollView, context: Context) {
@@ -33,12 +38,48 @@ struct RepresentUIView: UIViewRepresentable {
     
 }
 
+
+class MyCustomUIScrollView: UIScrollView {
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        commonInit()
+    }
+
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        commonInit()
+    }
+
+    func commonInit() {
+        isScrollEnabled = true
+        contentSize = CGSize(width: 500, height: 1000)
+    }
+}
+
 class CustomUIScrollView: UIScrollView {
     
+    override var contentSize: CGSize {
+        get {
+            // Calculate the content size based on the subviews
+            var maxY: CGFloat = 0.0
+            
+            for subview in subviews {
+                let subviewMaxY = subview.frame.maxY
+                maxY = max(maxY, subviewMaxY)
+            }
+            
+//            return CGSize(width: frame.width, height: maxY)
+            return CGSize(width: 500, height: 2000)
+        }
+        set {
+            // You can implement a setter if needed
+        }
+    }
+    
     init() {
-        super.init(frame: CGRect(x: 0, y: 0, width: 500, height: 1000))
+        super.init(frame: CGRect(x: 0, y: 0, width: 500, height: 2000))
         
-        let greenView = UIView(frame: CGRect(x: 100, y: 0, width: 300, height: 300))
+        let greenView = UIView(frame: CGRect(x: 100, y: 0, width: 300, height: 1000))
         greenView.backgroundColor = UIColor.green
         
         // Add the greenView as a subview
