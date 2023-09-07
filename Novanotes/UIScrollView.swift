@@ -19,3 +19,20 @@ struct RepresentUIScrollView: UIViewRepresentable {
     typealias UIViewType = UIScrollView
     
 }
+
+struct RepresentUIView: UIViewRepresentable {
+    func makeUIView(context: Context) -> UIView {
+        UIScrollView()
+    }
+    
+    func updateUIView(_ uiView: UIView, context: Context) {
+        
+    }
+    
+    typealias UIViewType = UIView
+    
+}
+
+class customUIScrollView: UIScrollView {
+    
+}
