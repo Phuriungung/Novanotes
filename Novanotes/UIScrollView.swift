@@ -72,10 +72,15 @@ class CustomUIScrollView: UIScrollView, UIScrollViewDelegate {
         // Add the greenView as a subview
         addSubview(greenView)
         
-        let drawView = SmoothedDraw(frame: CGRect(x: 400, y: 0, width: 600, height: 2000))
+        let drawView = SmoothedDraw(frame: CGRect(x: 400, y: 600, width: 600, height: 1000))
         drawView.backgroundColor = UIColor.cyan
         
         addSubview(drawView)
+        
+        let caView = FreeDrawingImageViewDrawLayer(frame: CGRect(x: 400, y: 0, width: 600, height: 500))
+        caView.backgroundColor = UIColor.lightGray
+        addSubview(caView)
+        
         delegate = self
     }
     

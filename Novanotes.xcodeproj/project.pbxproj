@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		50468A552AAAD3D1007E2CB9 /* CASmoothedDraw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50468A542AAAD3D1007E2CB9 /* CASmoothedDraw.swift */; };
 		508E2A102AA8A3F4008C22E6 /* NovanotesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508E2A0F2AA8A3F4008C22E6 /* NovanotesApp.swift */; };
 		508E2A122AA8A3F4008C22E6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508E2A112AA8A3F4008C22E6 /* ContentView.swift */; };
 		508E2A142AA8A3F6008C22E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 508E2A132AA8A3F6008C22E6 /* Assets.xcassets */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		50468A542AAAD3D1007E2CB9 /* CASmoothedDraw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CASmoothedDraw.swift; sourceTree = "<group>"; };
 		508E2A0C2AA8A3F4008C22E6 /* Novanotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Novanotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		508E2A0F2AA8A3F4008C22E6 /* NovanotesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NovanotesApp.swift; sourceTree = "<group>"; };
 		508E2A112AA8A3F4008C22E6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 				508E2A112AA8A3F4008C22E6 /* ContentView.swift */,
 				508E2A1D2AA95AAA008C22E6 /* UIScrollView.swift */,
 				50A16E902AAA37CB007F9013 /* SmoothedDraw.swift */,
+				50468A542AAAD3D1007E2CB9 /* CASmoothedDraw.swift */,
 				508E2A312AA9FA89008C22E6 /* CustomUIScrollViewDelegate.swift */,
 				508E2A0F2AA8A3F4008C22E6 /* NovanotesApp.swift */,
 				508E2A132AA8A3F6008C22E6 /* Assets.xcassets */,
@@ -217,6 +220,7 @@
 				50A16E912AAA37CB007F9013 /* SmoothedDraw.swift in Sources */,
 				508E2A122AA8A3F4008C22E6 /* ContentView.swift in Sources */,
 				508E2A322AA9FA89008C22E6 /* CustomUIScrollViewDelegate.swift in Sources */,
+				50468A552AAAD3D1007E2CB9 /* CASmoothedDraw.swift in Sources */,
 				508E2A102AA8A3F4008C22E6 /* NovanotesApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
