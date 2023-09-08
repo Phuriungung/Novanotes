@@ -4,9 +4,7 @@ import UIKit
 class FreeDrawingImageViewDrawLayer: UIView {
     
     var drawingLayer: CAShapeLayer?
-    var line = [CGPoint]() {
-        didSet { checkIfTooManyPoints() }
-    }
+    var line = [CGPoint]()
     
     var sublayers: [CALayer] {
         return self.layer.sublayers ?? [CALayer]()

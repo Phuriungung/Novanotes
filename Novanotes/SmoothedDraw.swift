@@ -27,7 +27,7 @@ class SmoothedDraw: UIView {
         path.stroke()
         UIColor.red.setStroke()
         path2.stroke()
-        setNeedsDisplay()
+//        setNeedsDisplay()
         
         bezierPath.move(to: CGPoint(x: 500, y: 500))
         bezierPath.addLine(to: CGPoint(x: 100, y: 900))
@@ -55,8 +55,20 @@ class SmoothedDraw: UIView {
         UIColor.green.setStroke()
         bezierPath.lineWidth = 20
         bezierPath.stroke()
-        setNeedsDisplay()
+//        setNeedsDisplay()
         
+    }
+    func calculateRectBetween(lastPoint: CGPoint, newPoint: CGPoint) -> CGRect {
+        let originX = min(lastPoint.x, newPoint.x) - (path.lineWidth / 2)
+        let originY = min(lastPoint.y, newPoint.y) - (path.lineWidth / 2)
+
+        let maxX = max(lastPoint.x, newPoint.x) + (path.lineWidth / 2)
+        let maxY = max(lastPoint.y, newPoint.y) + (path.lineWidth / 2)
+
+        let width = maxX - originX
+        let height = maxY - originY
+
+        return CGRect(x: originX, y: originY, width: width, height: height)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -70,8 +82,8 @@ class SmoothedDraw: UIView {
                 
                 path.move(to: pts[0])
                 path.addLine(to: pts[0])
-//                path.stroke()
-                setNeedsDisplay()
+                let rect = calculateRectBetween(lastPoint: pts[0], newPoint: pts[0])
+                setNeedsDisplay(rect)
             }
         }
     }
@@ -90,18 +102,18 @@ class SmoothedDraw: UIView {
                     if ctr == 1 {
                         path.move(to: pts[0])
                         path.addLine(to: pts[1])
-//                        path.stroke()
-                        setNeedsDisplay()
-                        //                print("1")
+                        let rect = calculateRectBetween(lastPoint: pts[1], newPoint: pts[0])
+                        setNeedsDisplay(rect)
+                        
                     }
                     
                     if ctr == 2 {
                         path.removeAllPoints()
                         path.move(to: pts[0])
                         path.addQuadCurve(to: pts[2], controlPoint: pts[1])
-//                        path.stroke()
-                        setNeedsDisplay()
-                        //                print("2")
+                        let rect = calculateRectBetween(lastPoint: pts[2], newPoint: pts[0])
+                        setNeedsDisplay(rect)
+                        
                     }
                     
                     
@@ -109,9 +121,9 @@ class SmoothedDraw: UIView {
                         path.removeAllPoints()
                         path.move(to: pts[0])
                         path.addCurve(to: pts[3], controlPoint1: pts[1], controlPoint2: pts[2])
-//                        path.stroke()
-                        setNeedsDisplay()
-                        //                print("3")
+                        let rect = calculateRectBetween(lastPoint: pts[3], newPoint: pts[0])
+                        setNeedsDisplay(rect)
+                        
                     }
                     
                     if ctr == 4 {
@@ -119,13 +131,14 @@ class SmoothedDraw: UIView {
                         pts[3] = CGPoint(x: (pts[2].x + pts[4].x) / 2.0, y: (pts[2].y + pts[4].y) / 2.0)
                         path2.move(to: pts[0])
                         path2.addCurve(to: pts[3], controlPoint1: pts[1], controlPoint2: pts[2])
-//                        path2.stroke()
-                        setNeedsDisplay()
+                        let rect = calculateRectBetween(lastPoint: pts[4], newPoint: pts[0])
+                        setNeedsDisplay(rect)
+                        
                         //                        print(path2.cgPath)
                         
                         
                         
-                        //                print("4")
+                        
                         
                         
                         
@@ -135,7 +148,7 @@ class SmoothedDraw: UIView {
                         
                         pts[0] = pts[3]
                         pts[1] = pts[4]
-                        //                print("5")
+                        
                         ctr = 1
                         
                     }
